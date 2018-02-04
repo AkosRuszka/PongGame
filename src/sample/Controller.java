@@ -18,6 +18,8 @@ public class Controller implements Initializable{
     @FXML
     Pane menuPane;
     @FXML
+    Pane gameBattlePane;
+    @FXML
     Button newGameButton;
     @FXML
     Button gameContinueButton;
@@ -25,6 +27,8 @@ public class Controller implements Initializable{
     Button helpButton;
     @FXML
     Button exitButton;
+    @FXML
+    Button settingsButton;
     //</editor-fold>
 
     private void setMenuPane() {

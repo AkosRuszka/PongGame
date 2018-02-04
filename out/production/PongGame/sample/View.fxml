@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="anchorPane" fx:id="anchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Pane id="menuPane" fx:id="menuPane" prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <VBox layoutX="275.0" layoutY="94.0" prefHeight="313.0" prefWidth="151.0" spacing="20.0">
+               <children>
+                  <Button id="newGameButton" fx:id="newGameButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" text="Új játék" />
+                  <Button id="gameContinueButton" fx:id="gameContinueButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" text="Játék folytatása" />
+                  <Button id="helpButton" fx:id="helpButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" text="Segítség" />
+                  <Button id="settingsButton" fx:id="settingsButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" text="Beállítások" />
+                  <Button id="exitButton" fx:id="exitButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="150.0" text="Kilépés" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane id="gamePane" fx:id="gamePane" prefHeight="500.0" prefWidth="700.0" visible="false">
+         <children>
+            <Pane id="gameBattlePane" fx:id="gameBattlePane" layoutY="42.0" prefHeight="459.0" prefWidth="700.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="310.0" layoutY="10.0" text="Game" textAlignment="CENTER">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label id="playerOneNameTitle" fx:id="playerOneNameTitle" layoutX="14.0" layoutY="14.0" text="Player1:">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label id="playerTwoNameTitle" fx:id="playerTwoNameTitle" layoutX="515.0" layoutY="14.0" text="Payer2:">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label id="playerOneScoreTitle" fx:id="playerOneScoreTitle" layoutX="119.0" layoutY="14.0" text="0" textFill="RED">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label id="playerTwoScoreTitle" fx:id="playerTwoScoreTitle" layoutX="616.0" layoutY="14.0" text="0" textFill="RED">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
