@@ -1,11 +1,12 @@
 package sample;
 
-
+import org.apache.log4j.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,6 +32,12 @@ public class Controller implements Initializable{
     Button settingsButton;
     //</editor-fold>
 
+    double starttime;
+    double endtime;
+
+    // for debug
+    static Logger log = Logger.getLogger(Controller.class.getName());
+
     private void setPaneElements() {
         newGameButton.setOnAction(event -> {
             showGamePane();
@@ -49,22 +56,23 @@ public class Controller implements Initializable{
 
         Rectangle player1wall = new Rectangle(10,50);
         Rectangle player2wall = new Rectangle(10,50);
-        player2wall.setX(450);
+        player1wall.setX(10);
+        player2wall.setX(680);
+
 
         gameBattlePane.setOnKeyPressed(event-> {
             switch (event.getCode()) {
-                case W: System.out.println("Player1: Moved up!");
+                case W:
                     player1wall.setY(player1wall.getY()-10 < 10 ? 0 : player1wall.getY()-10);
                     break;
-                case S: System.out.println("Player1: Moved down!");
+                case S:
                     player1wall.setY(player1wall.getY()+10 > 350 ? 350 : player1wall.getY()+10);
                     break;
-                case UP: System.out.println("Player2: Moved up!");
+                case UP:
                     player2wall.setY(player2wall.getY()-10 < 10 ? 0 : player2wall.getY()-10);
                     break;
-                case DOWN: System.out.println("Player2: Moved down!");
+                case DOWN:
                     player2wall.setY(player2wall.getY()+10 > 350 ? 350 : player2wall.getY()+10);
-                    System.out.println(player2wall.getY());
                     break;
                 case ESCAPE: showMenuPane();
                     break;
@@ -94,6 +102,8 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        PropertyConfigurator.configure("log4j.properties");
+
         setPaneElements();
     }
 }
