@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Pane id="menuPane" fx:id="menuPane" layoutX="275.0" layoutY="69.0">
+         <children>
+            <VBox prefHeight="313.0" prefWidth="151.0" spacing="30.0">
+               <children>
+                  <Button id="newGameButton" fx:id="newGameButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="151.0" text="Új játék" />
+                  <Button id="gameContinueButton" fx:id="gameContinueButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="151.0" text="Játék folytatása" />
+                  <Button id="helpButton" fx:id="helpButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="151.0" text="Segítség" />
+                  <Button id="exitButton" fx:id="exitButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="151.0" text="Kilépés" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane id="gamePane" fx:id="gamePane" prefHeight="450.0" prefWidth="700.0" visible="false" />
+   </children>
+</Pane>
