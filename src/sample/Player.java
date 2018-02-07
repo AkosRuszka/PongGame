@@ -2,6 +2,7 @@ package sample;
 
 import javafx.scene.shape.Rectangle;
 
+
 public class Player implements Runnable{
 
     private final static double MIN_HEIGH = 350;
@@ -9,6 +10,7 @@ public class Player implements Runnable{
     private final int jumpsize = 2;
 
     private Rectangle wall;
+
     private volatile boolean up, down;
 
     public Player(int playercount, Rectangle rect) {
@@ -50,11 +52,9 @@ public class Player implements Runnable{
 
     public void up(boolean state) {
         up = state;
-        System.out.println("up");
     }
 
     public void down(boolean state) {
         down = state;
-        System.out.println("down");
     }
 }

@@ -32,9 +32,6 @@ public class Controller implements Initializable{
     Button settingsButton;
     //</editor-fold>
 
-    double starttime;
-    double endtime;
-
     // for debug
     static Logger log = Logger.getLogger(Controller.class.getName());
 
@@ -75,19 +72,15 @@ public class Controller implements Initializable{
             switch (event.getCode()) {
                 case W:
                     playerOne.up(true);
-                    System.out.println("up hívás true-val");
                     break;
                 case S:
                     playerOne.down(true);
-                    System.out.println("down hívás true-val");
                     break;
                 case UP:
                     playerTwo.up(true);
-                    System.out.println("up hívás true-val");
                     break;
                 case DOWN:
                     playerTwo.down(true);
-                    System.out.println("down hívás true-val");
                     break;
                 case ESCAPE:
                     showMenuPane();
@@ -99,19 +92,15 @@ public class Controller implements Initializable{
             switch (event.getCode()) {
                 case W:
                     playerOne.up(false);
-                    System.out.println("up hívás false-val");
                     break;
                 case S:
                     playerOne.down(false);
-                    System.out.println("down hívás false-val");
                     break;
                 case UP:
                     playerTwo.up(false);
-                    System.out.println("up hívás false-val");
                     break;
                 case DOWN:
                     playerTwo.down(false);
-                    System.out.println("down hívás false-val");
                     break;
             }
         });
@@ -135,12 +124,12 @@ public class Controller implements Initializable{
         gamePane.setDisable(false);
         gamePane.setVisible(true);
         gameBattlePane.setFocusTraversable(true);
+        gameBattlePane.focusedProperty();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        PropertyConfigurator.configure("log4j.properties");
-
+        //PropertyConfigurator.configure("log4j.properties");
         setPaneElements();
     }
 }
