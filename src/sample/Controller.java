@@ -38,6 +38,11 @@ public class Controller implements Initializable{
     // for debug
     static Logger log = Logger.getLogger(Controller.class.getName());
 
+    Player playerOne;
+    Player playerTwo;
+    Thread playerOneThread;
+    Thread playerTwoThread;
+
     private void setPaneElements() {
         newGameButton.setOnAction(event -> {
             showGamePane();
@@ -56,31 +61,63 @@ public class Controller implements Initializable{
 
         Rectangle player1wall = new Rectangle(10,50);
         Rectangle player2wall = new Rectangle(10,50);
-        player1wall.setX(10);
-        player2wall.setX(680);
 
+        playerOne = new Player(1,player1wall);
+        playerTwo = new Player(2,player2wall);
+
+        playerOneThread = new Thread(playerOne);
+        playerTwoThread = new Thread(playerTwo);
+
+        playerOneThread.start();
+        playerTwoThread.start();
 
         gameBattlePane.setOnKeyPressed(event-> {
             switch (event.getCode()) {
                 case W:
-                    player1wall.setY(player1wall.getY()-10 < 10 ? 0 : player1wall.getY()-10);
+                    playerOne.up(true);
+                    System.out.println("up hívás true-val");
                     break;
                 case S:
-                    player1wall.setY(player1wall.getY()+10 > 350 ? 350 : player1wall.getY()+10);
+                    playerOne.down(true);
+                    System.out.println("down hívás true-val");
                     break;
                 case UP:
-                    player2wall.setY(player2wall.getY()-10 < 10 ? 0 : player2wall.getY()-10);
+                    playerTwo.up(true);
+                    System.out.println("up hívás true-val");
                     break;
                 case DOWN:
-                    player2wall.setY(player2wall.getY()+10 > 350 ? 350 : player2wall.getY()+10);
+                    playerTwo.down(true);
+                    System.out.println("down hívás true-val");
                     break;
-                case ESCAPE: showMenuPane();
+                case ESCAPE:
+                    showMenuPane();
                     break;
             }
         });
 
+        gameBattlePane.setOnKeyReleased(event -> {
+            switch (event.getCode()) {
+                case W:
+                    playerOne.up(false);
+                    System.out.println("up hívás false-val");
+                    break;
+                case S:
+                    playerOne.down(false);
+                    System.out.println("down hívás false-val");
+                    break;
+                case UP:
+                    playerTwo.up(false);
+                    System.out.println("up hívás false-val");
+                    break;
+                case DOWN:
+                    playerTwo.down(false);
+                    System.out.println("down hívás false-val");
+                    break;
+            }
+        });
 
         gameBattlePane.getChildren().addAll(player1wall,player2wall);
+
     }
 
     public void showMenuPane() {
